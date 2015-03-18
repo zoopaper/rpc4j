@@ -1,0 +1,10 @@
+/target
+/.settings
+/.classpath
+/bin
+/src/main/webapp/upload
+/src/main/webapp/FileStore
+/src/main/webapp/user
+/src/main/webapp/news
+/logs
+/src/main/webapp/elewordIndex
