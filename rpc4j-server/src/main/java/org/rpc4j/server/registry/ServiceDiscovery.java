@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ServiceDiscovery {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceDiscovery.class);
+    private static final Logger Logger = LoggerFactory.getLogger(ServiceDiscovery.class);
 
     private CountDownLatch latch = new CountDownLatch(1);
 
@@ -43,10 +43,10 @@ public class ServiceDiscovery {
         if (size > 0) {
             if (size == 1) {
                 data = dataList.get(0);
-                LOGGER.debug("using only data: {}", data);
+                Logger.debug("using only data: {}", data);
             } else {
                 data = dataList.get(ThreadLocalRandom.current().nextInt(size));
-                LOGGER.debug("using random data: {}", data);
+                Logger.debug("using random data: {}", data);
             }
         }
         return data;
@@ -65,7 +65,7 @@ public class ServiceDiscovery {
             });
             latch.await();
         } catch (IOException | InterruptedException e) {
-            LOGGER.error("", e);
+            Logger.error("", e);
         }
         return zk;
     }
@@ -85,10 +85,10 @@ public class ServiceDiscovery {
                 byte[] bytes = zk.getData(Constant.ZK_REGISTRY_PATH + "/" + node, false, null);
                 dataList.add(new String(bytes));
             }
-            LOGGER.debug("node data: {}", dataList);
+            Logger.info("node data: {}", dataList);
             this.dataList = dataList;
         } catch (KeeperException | InterruptedException e) {
-            LOGGER.error("", e);
+            Logger.error("", e);
         }
     }
 }

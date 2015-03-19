@@ -35,7 +35,7 @@ public class RpcProxy {
 				new InvocationHandler() {
 					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-						RpcRequest request = new RpcRequest();
+						RpcRequest request  = new RpcRequest();
 						request.setRequestId(UUID.randomUUID().toString());
 						request.setClassName(method.getDeclaringClass().getName());
 						request.setMethodName(method.getName());

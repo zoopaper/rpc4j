@@ -35,7 +35,7 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class RPCServer implements ApplicationContextAware, InitializingBean {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RPCServer.class);
+    private static final Logger Logger = LoggerFactory.getLogger(RPCServer.class);
 
     private String serverAddress;
     private ServiceRegistry serviceRegistry;
@@ -90,7 +90,7 @@ public class RPCServer implements ApplicationContextAware, InitializingBean {
             int port = Integer.parseInt(array[1]);
 
             ChannelFuture future = bootstrap.bind(host, port).sync();
-            LOGGER.debug("server started on port {}", port);
+            Logger.debug("server started on port {}", port);
 
             if (serviceRegistry != null) {
                 serviceRegistry.register(serverAddress);

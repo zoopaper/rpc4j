@@ -19,14 +19,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * RPC 客户端（用于发送 RPC 请求）
+ * RPC客户端（用于发送 RPC 请求）
  * 
  * @author huangyong
  * @since 1.0.0
  */
 public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RpcClient.class);
+	private static final Logger Logger = LoggerFactory.getLogger(RpcClient.class);
 
 	private String host;
 
@@ -52,7 +52,7 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		LOGGER.error("client caught exception", cause);
+		Logger.error("client caught exception", cause);
 		ctx.close();
 	}
 
@@ -84,10 +84,4 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
 		}
 	}
 
-	// @Override
-	// protected void messageReceived(ChannelHandlerContext ctx, RpcResponse
-	// msg) throws Exception {
-	// // TODO Auto-generated method stub
-	//
-	// }
 }
