@@ -11,3 +11,6 @@ lightweight rpc framework  sample
 3. 监控中心
 4. 配置中心
 
+原始代码来源：http://www.oschina.net/code/snippet_223750_45050
+
+作为实现RPC入门学习示例，代码进行了梳理
