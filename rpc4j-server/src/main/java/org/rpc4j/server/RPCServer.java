@@ -8,10 +8,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.collections4.MapUtils;
 import org.rpc4j.common.RpcDecoder;
 import org.rpc4j.common.RpcEncoder;
@@ -27,6 +23,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * RPC服务器-(用于发布 RPC服务)
  *
@@ -40,7 +39,7 @@ public class RPCServer implements ApplicationContextAware, InitializingBean {
     private String serverAddress;
     private ServiceRegistry serviceRegistry;
 
-    private Map<String, Object> handlerMap = new HashMap<>();
+    private Map<String, Object> handlerMap = new HashMap<String, Object>();
 
     public RPCServer(String serverAddress) {
         this.serverAddress = serverAddress;
@@ -73,17 +72,17 @@ public class RPCServer implements ApplicationContextAware, InitializingBean {
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-                .childHandler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public void initChannel(SocketChannel channel) throws Exception {
-                        channel.pipeline()
-                            .addLast(new RpcDecoder(RpcRequest.class))
-                            .addLast(new RpcEncoder(RpcResponse.class))
-                            .addLast(new RpcHandler(handlerMap));
-                    }
-                })
-                .option(ChannelOption.SO_BACKLOG, 128)
-                .childOption(ChannelOption.SO_KEEPALIVE, true);
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        public void initChannel(SocketChannel channel) throws Exception {
+                            channel.pipeline()
+                                    .addLast(new RpcDecoder(RpcRequest.class))
+                                    .addLast(new RpcEncoder(RpcResponse.class))
+                                    .addLast(new RpcHandler(handlerMap));
+                        }
+                    })
+                    .option(ChannelOption.SO_BACKLOG, 128)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             String[] array = serverAddress.split(":");
             String host = array[0];

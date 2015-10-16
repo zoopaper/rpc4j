@@ -1,13 +1,13 @@
 package org.rpc4j.client;
 
+import org.rpc4j.common.RpcRequest;
+import org.rpc4j.common.RpcResponse;
+import org.rpc4j.server.registry.ServiceDiscovery;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
-
-import org.rpc4j.common.RpcRequest;
-import org.rpc4j.common.RpcResponse;
-import org.rpc4j.server.registry.ServiceDiscovery;
 
 /**
  * RPC代理（用于创建 RPC服务代理）
