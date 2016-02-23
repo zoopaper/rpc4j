@@ -11,13 +11,13 @@
 
     <context:property-placeholder location="classpath:rpc.properties"/>
 
-    <bean id="serviceRegistry" class="org.rpc4j.server.registry.ServiceRegistry">
+    <bean id="serviceRegistry" class="org.rpc4j.common.registry.ServiceRegistry">
         <constructor-arg name="registryAddress" value="${registry.address}"/>
     </bean>
 
     <bean id="rpcServer" class="org.rpc4j.server.RPCServer">
-        <constructor-arg name="serverAddress" value="${server.address}"/>
-        <constructor-arg name="serviceRegistry" ref="serviceRegistry"/>
+        <constructor-arg index="0" name="serverAddress" value="${server.address}"/>
+        <constructor-arg index="1" name="serviceRegistry" ref="serviceRegistry"/>
     </bean>
 
 </beans>

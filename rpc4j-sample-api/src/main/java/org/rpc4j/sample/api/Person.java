@@ -1,4 +1,4 @@
-package org.rpc4j.sample.client;
+package org.rpc4j.sample.api;
 
 public class Person {
 

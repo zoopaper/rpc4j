@@ -8,7 +8,7 @@
 
 	<context:property-placeholder location="classpath:rpc.properties" />
 
-	<bean id="serviceDiscovery" class="org.rpc4j.common.registry.ServiceDiscovery">
+	<bean id="serviceDiscovery" class="org.rpc4j.server.registry.ServiceDiscovery">
 		<constructor-arg name="registryAddress" value="${registry.address}" />
 	</bean>
 

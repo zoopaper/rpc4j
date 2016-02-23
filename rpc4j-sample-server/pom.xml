@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.rpc</groupId>
 	<artifactId>rpc4j-sample-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>rpc4j-sample-server</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -19,8 +19,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.rpc</groupId>
-			<artifactId>rpc4j-sample-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>rpc4j-server</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.rpc</groupId>
+			<artifactId>rpc4j-sample-api</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>

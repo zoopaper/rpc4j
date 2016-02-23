@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.rpc</groupId>
 	<artifactId>rpc4j-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>rpc4j-server</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -20,7 +20,7 @@
 		<dependency>
 			<groupId>org.rpc</groupId>
 			<artifactId>rpc4j-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>

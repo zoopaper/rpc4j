@@ -1,4 +1,4 @@
-package org.rpc4j.server.registry;
+package org.rpc4j.common.registry;
 
 public interface Constant {
 

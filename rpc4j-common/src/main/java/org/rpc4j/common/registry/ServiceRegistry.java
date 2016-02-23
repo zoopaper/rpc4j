@@ -1,11 +1,17 @@
-package org.rpc4j.server.registry;
-
-import org.apache.zookeeper.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package org.rpc4j.common.registry;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
+
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.ZooDefs;
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 服务注册
@@ -55,6 +61,10 @@ public class ServiceRegistry {
     private void createNode(ZooKeeper zk, String data) {
         try {
             byte[] bytes = data.getBytes();
+            Stat stat = zk.exists(Constant.ZK_REGISTRY_PATH, false);
+            if(stat==null) {
+            	String path1 = zk.create(Constant.ZK_REGISTRY_PATH, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            }
             String path = zk.create(Constant.ZK_DATA_PATH, bytes, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             LOGGER.debug("create zookeeper node ({} => {})", path, data);
         } catch (KeeperException | InterruptedException e) {

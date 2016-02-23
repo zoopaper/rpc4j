@@ -1,7 +1,7 @@
 package org.rpc4j.sample.server;
 
-import org.rpc4j.sample.client.HelloService;
-import org.rpc4j.sample.client.Person;
+import org.rpc4j.sample.api.HelloService;
+import org.rpc4j.sample.api.Person;
 import org.rpc4j.server.annotation.RPCService;
 
 
