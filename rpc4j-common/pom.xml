@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.rpc</groupId>
 		<artifactId>rpc4j</artifactId>
-		<version>0.1.1-Final</version>
+		<version>0.1.2-Final-SNAPSHOT</version>
 	</parent>
 	<groupId>org.rpc</groupId>
 	<artifactId>rpc4j-common</artifactId>
