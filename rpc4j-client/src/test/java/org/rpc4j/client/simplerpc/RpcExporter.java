@@ -64,7 +64,7 @@ public class RpcExporter {
 
                 Method method = service.getMethod(methodName, parameterTypes);
 
-                Object result = method.invoke(service.getInterfaces(), arguments);
+                Object result = method.invoke(service.newInstance(), arguments);
 
                 output = new ObjectOutputStream(client.getOutputStream());
 
@@ -87,7 +87,7 @@ public class RpcExporter {
                         e.printStackTrace();
                     }
                 }
-                if (client!=null){
+                if (client != null) {
                     try {
                         client.close();
                     } catch (IOException e) {
