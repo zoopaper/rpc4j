@@ -1,9 +1,9 @@
-package org.rpc4j.client.simplerpc;
+package org.rpc4j.client.simplerpc.provider;
 
 /**
  * User: shijingui
  * Date: 2016/3/2
  */
 public interface EchoService {
-    public String echo(String str);
+    String echo(String str);
 }

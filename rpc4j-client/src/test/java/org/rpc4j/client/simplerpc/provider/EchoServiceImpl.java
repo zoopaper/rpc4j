@@ -1,4 +1,4 @@
-package org.rpc4j.client.simplerpc;
+package org.rpc4j.client.simplerpc.provider;
 
 /**
  * User: shijingui

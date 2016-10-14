@@ -21,8 +21,9 @@
 		<module>rpc4j-sample-api</module>
 		<module>rpc4j-sample-client</module>
 		<module>rpc4j-sample-server</module>
+		<module>rpc4j-sample-web</module>
 	</modules>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -78,6 +79,13 @@
 			<artifactId>objenesis</artifactId>
 			<version>2.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+			<version>4.0.33</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
